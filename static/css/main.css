@@ -1,0 +1,31 @@
+.h {
+    font-family: Comic Sans Ms, Comic Sans, cursive;
+}
+
+.cover {
+    position: relative;
+    background-color: white;
+    background: url("images/bg-6.jpg") no-repeat center center;
+    background-size: cover;
+    height: 500px;
+}
+
+.overlay {
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+}
+
+.input-group-text {
+    border-bottom-right-radius: 0%;
+    border-top-right-radius: 0%;
+}
+
+.form-control {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}

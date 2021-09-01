@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>BT| CNN</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-dark" aria-label="Fourth navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="">HEATHCARE DISCERNMENT SYSTEM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active btn btn-dark me-2" aria-current="page" href="{{url_for('index')}}">Brain Tumor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark me-2" href="{{url_for('maleria')}}">maleria</a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="cover text-center text-white">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 mx-auto mt-5 pt-5">
+                        <h1 class="text-light"><strong>
+                            PERDICTION</strong>
+                        </h1>
+                        <h1 class="text-primary"><strong> Brain tumor disease detection</strong></h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class=" text-center ">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-6 mx-auto">
+                    <form action="{{url_for('upload')}}" class="" id="upload-file" enctype="multipart/form-data" method="POST">
+                        <h3 class="font text-primary mb-2">upload brain scan image here</h3>
+                        <input type="file" name="file" id="imageUpload" accept=".png, .jpg,.jpeg" class="form-control">
+                        <button type="submit" class="btn btn-primary mt-5 mb-5" id="btn-predict">Predict</button>
+                    </form>
+                    {% if result == 0 %}
+                    <div class="card mx-auto shadow" style="width: 250px;">
+                        <img src="{{url_for('static', filename='uploads/'+filename)}}" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">Uninfected brain</p>
+                        </div>
+                    </div>
+                    <h5 class="font mt-5">Result: happy to say that the patient don't have brain tumor with {{probability }}% of confidence </h5>
+                    {% endif %} {% if result == 1 %}
+                    <div class="card mx-auto shadow" style="width: 250px;">
+                        <img src="{{url_for('static', filename='uploads/'+filename)}}" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">Infected brain</p>
+                        </div>
+                    </div>
+                    <h5 class="font mt-5"> Result: sorry to say that patient have brain tumor with {{probability }}% of confidence</h5>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="model-footer mt-3">
+        <p>Mechine learning based web app </p>
+        <p>
+            <a href="{{url_for('index') }}">Back to top</a>
+        </p>
+    </footer>
+
+
+
+
+
+
+
+    <style>
+        .h {
+            font-family: Comic Sans Ms, Comic Sans, cursive;
+        }
+        
+        .font {
+            font-family: Comic Sans Ms, Comic Sans, cursive;
+        }
+        
+        .cover {
+            position: relative;
+            background-color: white;
+            background: url("static/images/BrainTumor.jpg") no-repeat center center;
+            background-size: cover;
+            height: 400px;
+        }
+        
+        .overlay {
+            position: absolute;
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+        }
+        
+        .input-group-text {
+            border-bottom-right-radius: 0%;
+            border-top-right-radius: 0%;
+        }
+        
+        .form-control {
+            border-top-left-radius: 0%;
+            border-bottom-left-radius: 0%;
+        }
+        
+        .model-footer {
+            padding: 2.5rem 0;
+            color: #727272;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+        
+        .model-footer p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
+
+
+
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+
+
+</body>
+
+</html>
