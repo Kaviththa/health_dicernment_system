@@ -1,11 +1,9 @@
 # health_dicernment_system
-## project goal: 
+## About project: The main goal of this project is to develop a complete end to end web app to detect brain tumor and maleria using python and flask.the two models were built by using convolutional nerual network(CNN) to classify the maleria cell images into parasitized/uninfected cell and brain tumor scan images into yes/no.
+
 ## Demo:
 
 ![Capture](https://user-images.githubusercontent.com/51403241/131647442-a304aad1-eb18-4396-84dd-33f8f4b702c8.PNG)
-
-
-
 
 ![Capture-5](https://user-images.githubusercontent.com/51403241/131647552-2ac5e827-47ad-4647-9569-ac330198d269.PNG)
 
